@@ -7,3 +7,7 @@ Tên nhóm: Web Dau Gia
    vosiluanse@gmail.com
    0935471922
    https://www.facebook.com/luan.vosi.3 
+3/ Tran Hoai Mi
+   hoaimiqng@gmail.com
+   0902611297
+	
