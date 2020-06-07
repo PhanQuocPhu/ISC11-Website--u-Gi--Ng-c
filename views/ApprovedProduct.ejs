@@ -1,0 +1,47 @@
+<head>
+    <link rel='stylesheet' href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/javascripts/bootstrap.min.css">
+    <script src="/javascripts/jquery.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <style type="text/css">
+        body {
+            margin: 50px auto;
+            padding: 0px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<div class="row">
+    <div class="col-sm-12">
+        <h1 style="text-align: center;color: black">Đăng Bài Lên Trang Chủ</h1>
+        <button type="submit" class="btn btn-danger" onclick="location.href='/ShowProductCty'">Sản phẩm công ty</button>
+        <button type="submit" class="btn btn-danger" onclick="location.href='/ShowProductKH'">Sản phẩm khách hàng</button>
+        <button type="submit" class="btn btn-danger" onclick="location.href='/Censorship'">Duyệt sản phẩm</button>
+        <table class="table" style="margin-top: 30px">
+            <thead>
+            <tr>
+                <th class="info">Mã Sản Phẩm</th>
+                <th class="info" width="150px">Tên Sản Phẩm</th>
+                <th class="info">Giá Sản Phẩm</th>
+                <th class="info">Loại Sản Phẩm</th>
+                <th class="info" width="150px">Mô Tả</th>
+                <th class="info" width="150px">Hình Ảnh</th>
+                <th class="info">Thời Gian Đăng</th>
+            </tr>
+            </thead>
+            <% data1.forEach(function (item) { %>
+                <tbody>
+                <tr class="success">
+                    <td><%= item.maSP %></td>
+                    <td><%= item.tenSP %></td>
+                    <td><%= item.giaSP %></td>
+                    <td><%= item.loaiSP %></td>
+                    <td width="150px"><%= item.moTa %></td>
+                    <td><img src="<%= item.url %>" width="100px" height="100px"/></td>
+                    <td><%= item.tgDangBai %></td>
+                </tr>
+                </tbody>
+            <% }) %>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,121 @@
+<head>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel="stylesheet" href="../javascripts/bootstrap.min.css">
+    <script src="../javascripts/jquery.min.js"></script>
+    <script src="../javascripts/bootstrap.min.js"></script>
+    <style type="text/css">
+        body {
+            margin: 50px auto;
+            padding: 0px;
+            margin-left: 10px;
+        }
+        #section_2 {
+            width: 100%;
+            height: auto;
+            float: left;
+            padding: 60px;
+        }
+
+        .col-sm-3 {
+            margin-top: 5px;
+            overflow: hidden;
+            border-bottom: 1px solid black;
+        }
+
+        .col-sm-3 img {
+            transition: transform .5s ease;
+        }
+
+        .col-sm-3:hover img {
+            transform: scale(1.5);
+        }
+        .coutdown{
+            font-size: 15px;
+            font-weight: bold;
+            text-align: center;
+            color: black;
+            margin-left: 35px;
+        }
+        .gia{
+            font-size: 15px;
+            font-weight: bold;
+            text-align: center;
+            color: red;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<section id="section_2">
+    <div class="row">
+        <div class="col-sm-3">
+            <a href="../Detail"><img src="../images/a.jpg" width="100%" height="150px" class="img-rounded"></a>
+            <span class="coutdown"></span><span class="gia"></span>
+        </div>
+        <div class="col-sm-3">
+            <img src="../images/b.png" width="100%"height="150px" class="img-rounded">
+            <span class="coutdown"></span><span class="gia"></span>
+        </div>
+        <div class="col-sm-3">
+            <img src="../images/c.jpg" width="100%" height="150px" class="img-rounded">
+            <span class="coutdown"></span><span class="gia"></span>
+        </div>
+        <div class="col-sm-3">
+            <img src="../images/d.png" width="100%" height="150px" class="img-rounded">
+            <span class="coutdown"></span><span class="gia"></span>
+        </div>
+        <div class="col-sm-3">
+            <img src="../images/e.jpg" width="100%" height="150px" class="img-rounded">
+            <span class="coutdown"></span><span class="gia"></span>
+        </div>
+        <div class="col-sm-3">
+            <img src="../images/f.jpg" width="100%" height="150px" class="img-rounded">
+            <span class="coutdown"></span><span class="gia"></span>
+        </div>
+    </div>
+</section>
+<script>
+    var seconds = 60;
+    var minute = 4;
+    function countDown() {
+        if(seconds!=0 && minute !=0){
+            seconds -- ;
+            var x = document.getElementsByClassName("coutdown");
+            for (var i = 0; i < x.length; i++) {
+                x[i].innerHTML = minute + ":" +seconds;
+            }
+            //document.getElementById("coutdown").innerHTML = minute + ":" + seconds;
+            setTimeout("countDown()",1000);
+        }else if(seconds==0 && minute!=0){
+            minute --;
+            seconds+=59;
+            //document.getElementById("coutdown").innerHTML = minute + ":" + seconds;
+            var x = document.getElementsByClassName("coutdown");
+            for (var i = 0; i < x.length; i++) {
+                x[i].innerHTML = minute + ":" +seconds;
+            }
+            setTimeout("countDown()",1000);
+        }else if(minute==0 && seconds!=0){
+            seconds -- ;
+            setTimeout("countDown()",1000);
+            //document.getElementById("coutdown").innerHTML = minute + ":" + seconds;
+            var x = document.getElementsByClassName("coutdown");
+            for (var i = 0; i < x.length; i++) {
+                x[i].innerHTML = minute + ":" +seconds;
+            }
+        }
+        else if(minute==0 && seconds==0){
+            document.getElementById("coutdown").innerHTML = "00:00";
+        }
+    }
+    countDown();
+
+    function price() {
+        var tien = 15;
+        var x2 = document.getElementsByClassName("gia");
+        for (var i = 0; i < x2.length; i++) {
+            x2[i].innerHTML = tien+"K VNĐ";
+            tien = (i/2) + 5 ;
+        }
+    }
+    price();
+</script>

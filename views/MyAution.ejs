@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel="stylesheet" href="../javascripts/bootstrap.min.css">
+    <script src="../javascripts/jquery.min.js"></script>
+    <script src="../javascripts/bootstrap.min.js"></script>
+    <style>
+        body {
+            margin: 0px auto;
+            padding: 0px;
+        }
+
+        .row {
+            margin-top: 40px;
+            padding-left: 150px;
+            padding-right: 150px;
+        }
+        .col-sm-12{
+            border: 1px solid #f8f8f8;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="row">
+    <div class="col-sm-12">
+        <h3 style="font-weight: bold;color: black">Đấu Giá Thắng Của Bạn</h3>
+        <table class="table table-hover" id="myTab">
+            <thead>
+            <tr>
+                <th>Trạng thái</th>
+                <th>Giá thầu chiến thắng</th>
+                <th>Đã hoàn thành</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Thắng</td>
+                <td>30K VNĐ</td>
+                <td id="gt2"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    function setValue() {
+        var date = new Date().getDate();
+        var month = new Date().getMonth();
+        month+=1;
+        var year = new Date().getFullYear();
+        var hours = new Date().getHours();
+        var minute = new Date().getMinutes();
+        var seconds = new Date().getSeconds();
+        document.getElementById("gt2").innerText=date+"-"+month+"-"+year+" "+hours+":"+minute+":"+seconds+" ITC";
+    }
+    setValue();
+</script>
+</body>
+</html>

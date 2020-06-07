@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel="stylesheet" href="../javascripts/bootstrap.min.css">
+    <script src="../javascripts/jquery.min.js"></script>
+    <script src="../javascripts/bootstrap.min.js"></script>
+    <style type="text/css">
+        body{
+            margin: 0px auto;
+            padding: 0px;
+        }
+        #section_2 {
+            width: 100%;
+            height: auto;
+            float: left;
+            padding: 80px;
+        }
+        .col-sm-6 {
+            overflow: hidden;
+        }
+        .col-sm-6 img {
+            transition: transform .5s ease;
+            float: left;
+        }
+        .col-sm-6:hover img {
+            transform: scale(1.5);
+        }
+        .widthTime{
+            width: 270px;
+            height: 50px;
+            border: 1px solid black;
+            border-radius: 3px;
+            background-color: #FCF8F8;
+        }
+        .time{
+            font-size: 30px;
+            float: left;
+            color: red;
+            margin-left: 90px;
+        }
+        .priceCurent_userWin{
+            font-size: 15px;
+            padding: 20px;
+            font-weight: bold;
+            color: black;
+        }
+        .gia{
+            padding: 50px;
+            font-weight: bold;
+            color: #1b6d85;
+            font-size: 15px;
+        }
+        .spinner{
+            float: left;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<section id="section_2">
+    <div class="row">
+        <% data.forEach(function (d) { %>
+        <div class="col-sm-6">
+            <img src="<%-d.url %>" width="100%" class="img-rounded" style="cursor: zoom-in">
+        </div>
+        <div class="col-sm-6" id="right">
+            <h2 style="color:blue;font-weight: bold"><%=d.tenSP%></h2>
+            <div class="widthTime"><span class="time">00 : 00 </span></div> <br > <br > <br > <br >
+                <span class="priceCurent_userWin">Giá Thầu Hiện Tại:</span><span class="priceCurent_userWin">Người Thắng Hiện Tại:</span> <br ><br >
+                <span class="gia">10K VNĐ</span><span class="gia">NguyenAn4566</span>
+                <hr size="1" color="black" style="text-align: center">
+                <p style="font-weight: bold;color: gray;">Đặt Giá Mà Bạn Muốn Đấu Giá:</p>
+            <form class="navbar-form navbar-left" id="f_search" method="get" action="/MyCart/<%=d.tenSP%>">
+                <div class="spinner">
+                    <button onclick="decrease()" type="button" style="border-bottom-left-radius: 3px;border-top-left-radius: 3px;font-weight: bold" class="btn btn-info" id="minus">-</button>
+                    <span style="font-size: 20px;color: black;font-weight: bold" id="moneyAution">10K VNĐ</span>
+                    <button onclick="increase()" type="button" style="border-bottom-right-radius: 3px;border-top-right-radius: 3px;font-weight: bold" class="btn btn-info" id="plus">+</button>
+
+                    <button onclick="setValue()" type="submit" style="border-radius: 3px;margin-left: 50px;font-weight: bold" class="btn btn-info">ĐẤU GIÁ</button>
+                </div>
+            </form>
+        </div>
+        <% }) %>
+    </div>
+    <hr style="color: black;text-align: center;margin-top: 80px;">
+</section>
+<div style="margin: 60px">
+    <table class="table">
+        <thead>
+        <tr class="info">
+            <th>Người Đấu Giá</th>
+            <th>Giá Đặt</th>
+            <th>Thời Gian</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="default">
+            <td id="gt1"></td>
+            <td id="gt2"></td>
+            <td id="gt3"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="info_product" style="margin-top: 10px;margin: 60px">
+    <h3 style="color: #00B7FF;font-weight: bold">Thông tin chi tiết sản phẩm</h3>
+    <h4 style="font-weight: bold">Mô tả sản phẩm</h4>
+    <p style="font-size: 16px;margin-left: 10px;text-align: justify">
+        Socket LGA1151 cho các bộ xử lý máy tính bàn Intel® Core™ thế hệ thứ 8/9.
+        Aura Sync RGB: Đồng bộ hệ thống đèn LED với một loạt các phụ kiện PC tương thích, bao gồm các dải đèn RGB đổi màu.
+        Làm mát toàn diện: Vỏ bảo vệ I/O tích hợp và quạt tản nhiệt VRM, quạt tản nhiệt M.2 hai tầng.
+        Tối ưu hóa 5 chiều: Tự động điều chỉnh toàn hệ thống, hỗ trợ các tính năng ép xung và làm mát công nghệ AI dành riêng cho giàn máy của bạn.
+        Khả năng kết nối gaming: Các đầu cắm M.2 Kép và USB 3.1 Thế hệ 2 Type-A và Type-C.
+        Mạng chơi game: Intel Gigabit Ethernet, hỗ trợ Intel 2x2 802.11ac Wi-Fi với MU-MIMO, LANGuard và GameFirst.
+        Âm thanh gaming: SupremeFX S1220A kết hợp với Sonic Studio III mang tới quang cảnh âm thanh đưa bạn nhập tâm sâu hơn vào hành động.
+        Easy DIY: Màn chắn I/O gắn sẵn, ASUS SafeSlot và các bộ phận cao cấp mang lại độ bền tối đa.
+    </p>
+    <hr style="color: black;text-align: center">
+    <h3 style="color: #00B7FF;font-weight: bold">Chính sách hoàn trả</h3>
+    <p style="font-size: 16px;margin-left: 10px;text-align: justify">
+        Chúng tôi cung cấp chính sách hoàn trả 30 ngày sau khi chúng tôi nhận được đơn đặt hàng của bạn.
+        Chính sách hoàn trả 30 ngày của chúng tôi áp dụng cho tất cả các sản phẩm để bạn có thể mua sản phẩm một cách an toàn, vv
+        Lưu ý: Tất cả các sản phẩm phải được trả lại trong cùng điều kiện như đã nhận.Bạn sẽ nhận được một khoản hoàn lại đầy đủ, trừ phí vận chuyển trở lại và phí dịch vụ 10%.</p>
+    <hr style="color: black;text-align: center">
+    <h3 style="color: #00B7FF;font-weight: bold">Thanh toán</h3>
+    <p style="font-size: 16px;margin-left: 10px;text-align: justify">
+        Chúng tôi cung cấp cổng thuận tiện và an toàn để thực hiện thanh toán trực tuyến thông qua thẻ tín dụng / thẻ ghi nợ hoặc MasterCard.</p>
+</div>
+<script>
+    var seconds = 60;
+    var minute = 4;
+    function countDown() {
+        if(seconds!=0 && minute !=0){
+            seconds -- ;
+            var x = document.getElementsByClassName("time");
+            for (var i = 0; i < x.length; i++) {
+                x[i].innerHTML = minute + " : " +seconds;
+            }
+            //document.getElementById("coutdown").innerHTML = minute + ":" + seconds;
+            setTimeout("countDown()",1000);
+        }else if(seconds==0 && minute!=0){
+            minute --;
+            seconds+=59;
+            //document.getElementById("coutdown").innerHTML = minute + ":" + seconds;
+            var x = document.getElementsByClassName("time");
+            for (var i = 0; i < x.length; i++) {
+                x[i].innerHTML = minute + " : " +seconds;
+            }
+            setTimeout("countDown()",1000);
+        }else if(minute==0 && seconds!=0){
+            seconds -- ;
+            setTimeout("countDown()",1000);
+            //document.getElementById("coutdown").innerHTML = minute + ":" + seconds;
+            var x = document.getElementsByClassName("time");
+            for (var i = 0; i < x.length; i++) {
+                x[i].innerHTML = minute + " : " +seconds;
+            }
+        }
+        else if(minute==0 && seconds==0){
+            var result = confirm("Bạn Là Người Chiến Thắng! Bạn có muốn đi đến giỏ hàng");
+            if(result){
+                window.location="MyCart";
+            }else {
+                finish();
+            }
+        }
+    }
+    countDown();
+
+    var count = 10;
+    function increase() {
+        if(count==200){
+            finish();
+        }
+        else {
+            count += 10;
+            document.getElementById("moneyAution").innerText = count + "K VNĐ";
+        }
+    }
+
+    function decrease() {
+        if(count==0){
+            finish();
+        }else{
+            count-=10;
+            document.getElementById("moneyAution").innerText=count + "K VNĐ";
+        }
+
+    }
+    
+    function setValue() {
+        var date = new Date().getDate();
+        var month = new Date().getMonth();
+        month+=1;
+        var year = new Date().getFullYear();
+        var hours = new Date().getHours();
+        var minute = new Date().getMinutes();
+        var seconds = new Date().getSeconds();
+        document.getElementById("gt3").innerText=date+"-"+month+"-"+year+" "+hours+":"+minute+":"+seconds+" ITC";
+        document.getElementById("gt2").innerText=count + "K VNĐ";
+        document.getElementById("gt1").innerText="MinhThien333";
+    }
+</script>
+</body>
+</html>

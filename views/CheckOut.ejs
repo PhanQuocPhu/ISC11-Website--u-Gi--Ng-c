@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel="stylesheet" href="../javascripts/bootstrap.min.css">
+    <script src="../javascripts/jquery.min.js"></script>
+    <script src="../javascripts/bootstrap.min.js"></script>
+    <style>
+        body {
+            margin: 0px auto;
+            padding: 0px;
+        }
+
+        .row {
+            margin-top: 40px;
+            padding-left: 150px;
+            padding-right: 150px;
+        }
+
+        .row2 {
+            padding-left: 150px;
+            padding-right: 150px;
+        }
+
+        .col-sm-12 {
+            border: 1px solid #f8f8f8;
+        }
+
+        .form-horizontal {
+            margin-top: 10px;
+        }
+
+        .col-sm-4 {
+            text-align: center;
+        }
+    </style>
+    <script>
+        function kiemtraDiaChi(){
+            var re = /^[A-Za-z0-9+/]+[\s]/;
+            var diachi = document.getElementById("address").value.trim();
+            var err = document.getElementById("errD");
+            if (!re.test(diachi))
+            {
+                err.innerHTML = "<br /> <i> Địa chỉ không hợp lệ</i>";
+                err.style.color="red";
+                return false;
+            }
+            else
+            {
+                err.innerText = "";
+                return true;
+            }
+        }
+        function kiemtraSDT(){
+            var sdt = document.getElementById("phone").value.trim();
+            var re = /^0[1-9]{9}$/;
+            var err = document.getElementById("errSDT");
+            if(!re.test(sdt)){
+                err.innerHTML = "<br /> <i>Số điện thoại là kí tự số ,có 10 kí tự và bắt đầu từ 0</i>";
+                err.style.color="red";
+                return false;
+            }else {
+                document.getElementById("errSDT").innerHTML = "";
+                err.style.color="white";
+                return true;
+            }
+        }
+        function kiemtraTenKH(){
+            var tenkh = document.getElementById("name").value.trim();
+            var re = /^[A-Za-z\s]{10-50}/;
+            var err = document.getElementById("errTe");
+            if(!re.test(tenkh)){
+                err.innerHTML = "<br /> <i>Tên đăng nhập là kí tự chữ và không quá 50 kí tự </i>";
+                err.style.color="red";
+                return false;
+            }else {
+                document.getElementById("errTe").innerHTML = "";
+                err.style.color="white";
+                return true;
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="row">
+    <h3 style="font-weight: bold;color: black">Kiểm Tra</h3>
+    <h4 style="font-weight: bold;color: black">Địa chỉ thanh toán của bạn</h4>
+    <div class="col-sm-12">
+        <form class="form-horizontal" action="">
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="name">Tên:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="name" onblur="kiemtraTenKH()" required="required" placeholder="Hãy nhập tên của bạn" name="name">
+                    <span id="errTe"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="phone" style="color: black">Điện Thoại:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="phone" onblur="kiemtraSDT()" required="required" placeholder="Hãy nhập điện thoại của bạn" name="phone">
+                    <span id="errSDT"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="sel1" class="control-label col-sm-2" for="address" style="color: black">Địa Chỉ Giao Hàng:</label>
+                <div class="col-sm-10">
+                    <textarea class="md-textarea form-control" rows="3" required="required" onblur="kiemtraDiaChi()" id="address" name="address" placeholder="Hãy nhập chính xác địa chỉ mà bạn muốn giao hàng"></textarea> <br />
+                    <span id="errD"></span>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row2">
+    <h4 style="font-weight: bold;color: black">Chọn ngân hàng mà bạn muốn thanh toán</h4>
+    <div class="col-sm-4">
+        <input type="radio" class="custom-control-input" id="defaultUnchecked" value="true" name="radio">
+        <label class="custom-control-label"  for="defaultUnchecked"><img src="../images/agrii.png" width="100px"
+                                                                        height="80px"></label>
+    </div>
+    <div class="col-sm-4">
+        <input type="radio" class="custom-control-input" id="defaultUnchecked" value="false" name="radio">
+        <label class="custom-control-label" for="defaultUnchecked"><img src="../images/vietcom.png" width="100px"
+                                                                        height="80px"></label>
+    </div>
+    <div class="col-sm-4">
+        <input type="radio" class="custom-control-input" id="defaultUnchecked" value="false" name="radio">
+        <label class="custom-control-label" for="defaultUnchecked"><img src="../images/sacom.png" width="100px"
+                                                                        height="80px"></label>
+    </div>
+    <div class="form-group" style="text-align: center">
+        <div class="col-sm-offset-2 col-sm-10" style="margin-top: 30px">
+            <button type="submit"  class="btn btn-info" style="font-weight: bold" onclick="location.href='Order';">Tiếp tục</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
