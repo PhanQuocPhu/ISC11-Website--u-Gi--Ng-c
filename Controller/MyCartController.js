@@ -1,12 +1,4 @@
-var cookieArray = [];
-var AWS = require('aws-sdk');
-var bodyParser = require("body-parser");
-AWS.config.update({
-    region: "us-west-2",
-    accessKeyId: "AKIAIPKTQD44TJXEEIKQ",
-    secretAccessKey: "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",
-    endpoint: "https://dynamodb.us-west-2.amazonaws.com"
-});
+
 var docClient = new AWS.DynamoDB.DocumentClient();
 /* GET home page. */
 module.exports = function Cart(oldCart) {
