@@ -12,19 +12,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var testRouter = require('./routes/test');
 var app = express();
-var options = {
-    // Optional DynamoDB table name, defaults to 'sessions'
-    table: 'mySessions',
-    AWSConfigJSON: {
-        accessKeyId: "AKIAIPKTQD44TJXEEIKQ",
-        secretAccessKey: "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",
-        region: 'https://dynamodb.us-west-2.amazonaws.com'
-    },
-// // Optional client for alternate endpoint, such as DynamoDB Local
-client: new AWS.DynamoDB({ endpoint: new AWS.Endpoint('https://dynamodb.us-west-2.amazonaws.com')}),
-    readCapacityUnits : 25,
-    writeCapacityUnits : 25
-};
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
