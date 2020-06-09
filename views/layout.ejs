@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel="stylesheet" href="../javascripts/bootstrap.min.css">
+    <script src="../javascripts/jquery.min.js"></script>
+    <script src="../javascripts/bootstrap.min.js"></script>
+    <style type="text/css">
+        #btn_chat {
+            position: fixed;
+            left:;
+            right: 0px;
+            top: 550px;
+            float: right;
+            animation-name: example;
+            animation-duration: 6s;
+        }
+
+        .mess1 {
+
+            height: 20px;
+        }
+
+        #modal-dialog {
+            height: 500px;
+        }
+        .modal-header{
+            border-radius:3px;
+        }
+        @keyframes example {
+         0% {background-color: crimson;}
+         25% {background-color: lightsalmon;}
+         50% {background-color: pink;}
+         100% {background-color: indigo;}
+         100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+<% include Ingredient/Header.ejs %>
+<% include Ingredient/Navi.ejs %>
+<%- body %>
+<button class="btn btn-danger" style="border-radius: 100%;border:1px solid black;float:right;" data-toggle="modal"
+        data-target="#Modal_Chat" id="btn_chat"><img src="../images/message.png" style="border-radius: 100%;"
+                                                     width="30px" height="30px"></button>
+<div class="modal fade" id="Modal_Chat" role="dialog">
+    <div class="modal-dialog modal-lm" style="left:300px;right:0px;top:100px;" id="modalBig">
+
+        <!-- Modal content-->
+        <div class="modal-content" style="background-color: #f8f8f8" id="modal-dialog">
+            <div class="modal-header" style="background-color: #449d44;">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" style="color: white">Hỗ trợ khách hàng</h4>
+                <h4 class="modal-title" style="color: white"><img src="../images/call.png" style="border-radius: 100%;"width="20px" height="20px">&emsp;0984574747</h4>
+            </div>
+            <div class="mess1" style="margin-top:10px">
+                <p style="padding: 10px;color: black;font-size: 15px;font-weight: bold">
+                    - Chào bạn ! Tôi có thể giúp gì cho bạn</p>
+                <p style="padding: 10px;color: black;font-size: 15px;font-weight: bold">
+                    - Để sử dụng tính năng box chat miễn phí, <br />
+                    bạn vui lòng nhập email trên trang chủ để tạo tài khoản hoặc chọn đăng nhập nhé!</p>
+                <p style="margin-left:100px;color: blue;font-size: 15px;font-weight: bold;font-style: italic;" id="text"></p>
+                <p style="padding: 10px;color: black;font-size: 15px;font-weight: bold" id="text2"></p>
+                <div class="col-sm-12" style="margin-top:0px">
+                    <textarea class="md-textarea form-control" rows="3" id="area" placeholder="Soạn tin"></textarea>
+                    <button type="submit" onclick="writeText()" class="btn btn-default" style="margin-top:5px">Gửi</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<% include Ingredient/Footer.ejs %>
+
+<script>
+    function writeText() {
+            document.getElementById("text").innerText = "- Hello!";
+            document.getElementById("area").innerText = " ";
+            document.getElementById("text2").innerText = "- LTS Aution xin chào bạn !";
+        }
+</script>
+</body>
+</html>
