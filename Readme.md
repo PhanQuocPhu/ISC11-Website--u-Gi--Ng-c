@@ -12,4 +12,9 @@ Tên nhóm: Web Dau Gia
    0902611297
 4/ Phan Quoc Phu 
    Phanquocphu1998@gmail.com
-   0981183122	
+   0981183122
+
+5/
+Vo Chau NhatTruong\n
+nhattruong.it98@gmail.com\n
+0911502360
