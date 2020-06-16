@@ -15,6 +15,6 @@ Tên nhóm: Web Dau Gia
    0981183122
 
 5/
-Vo Chau NhatTruong\n
-nhattruong.it98@gmail.com\n
+Vo Chau NhatTruong
+nhattruong.it98@gmail.com
 0911502360
