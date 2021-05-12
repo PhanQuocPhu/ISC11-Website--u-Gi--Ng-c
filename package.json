@@ -24,7 +24,7 @@
     "javascript-html-tags": "0.0.0",
     "morgan": "~1.9.1",
     "multer": "^1.4.2",
-    "nodemailer": "^6.4.2",
+    "nodemailer": "^6.4.16",
     "sharp": "^0.23.2",
     "uuid": "^3.3.3"
   }
