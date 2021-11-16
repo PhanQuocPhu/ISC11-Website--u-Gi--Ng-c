@@ -8,7 +8,7 @@
   "dependencies": {
     "aws": "0.0.3-2",
     "aws-dynamodb": "^0.1.69",
-    "aws-sdk": "^2.580.0",
+    "aws-sdk": "^2.814.0",
     "body-parser": "^1.19.0",
     "connect": "^3.7.0",
     "connect-dynamodb": "^2.0.4",
